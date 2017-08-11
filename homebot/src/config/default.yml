@@ -1,0 +1,8 @@
+slack:
+  channel: '(Slack Channel ID)'
+  token: '(Slack Token)'
+  botname: '(Slack Bot ID)'
+
+api:
+  weather:
+    cityid: '130010'

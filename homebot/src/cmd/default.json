@@ -1,0 +1,92 @@
+{
+    "multi": {
+        "ただいま": {
+          "response": "おかえりなさい",
+          "control": {
+            "light": "orange"
+          }
+        },
+        "おやすみ": {
+          "response": "おやすみなさい",
+          "control": {
+            "light": "off"
+          }
+        },
+        "いってきます": {
+          "response": "いってらっしゃい",
+          "control": {
+            "light": "off",
+            "aircon": "off"
+          }
+        },
+        "おは": {
+          "response": "おはようございます",
+          "control": {
+            "none": "null"
+          }
+        },
+        "こんにち[はわ]": {
+          "response": "こんにちは",
+          "control": {
+            "none": "null"
+          }
+        },
+        "ping": {
+          "response": "pong",
+          "control": {
+            "none": "null"
+          }
+        }
+    },
+    "single": {
+        "control": {
+          "onoff" : {
+            "(付|つけ|オン|おん|on)" : "on",
+            "(消|けす|けし|オフ|おふ|止|off)" : "off"
+          },
+          "orange" : {
+            "(オレンジ|黄色|豆球|暗|orange)" : "orange"
+          },
+          "cansel" : {
+            "(キャンセル|cansel)" : "cansel"
+          },
+          "itunes" : {
+            "(再生|音楽|play)" : "play",
+            "(停止|stop)" : "stop",
+            "(一時|pause)" : "pause"
+          }
+        },
+        "list": {
+          "(電気|照明|明かり|灯り|あかり|light)" : {
+            "type" : "homeelect",
+            "func" : "light",
+            "control" : ["onoff", "orange"]
+          },
+          "(エアコン|空調|扇風機|air)" : {
+            "type" : "homeelect",
+            "func" : "aircon",
+            "control" : ["onoff"]
+          },
+          "(掃除|clean)" : {
+            "type" : "homeeletct",
+            "func" : "roomba",
+            "control" : []
+          },
+          "(室温|温度|湿度|temp|humid)" : {
+            "type" : "environment",
+            "func" : "temp",
+            "control" : []
+          },
+          "(天気|weather)" : {
+            "type" : "api",
+            "func" : "weather",
+            "control" : []
+          },
+          "(再生|音楽|曲|停止|一時|play|stop|pause|music|song)" : {
+            "type" : "music",
+            "func" : "music",
+            "control" : ["itunes"]
+          }
+       }
+    }
+}
