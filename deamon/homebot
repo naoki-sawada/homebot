@@ -1,0 +1,47 @@
+#!/bin/sh
+
+#chkconfig:2345 85 15
+#description:homebot shell
+
+HOMEBOT_PATH="/home/pi/homebot/"
+
+start()
+{
+  echo "###################"
+  echo "start homebot"
+  su - root -c "cd ${HOMEBOT_PATH}/homebot/src && python3 controller_server.py &"
+  su - pi -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh start &"
+
+  echo "###################"
+  echo "starting homebridge"
+  su - pi -c "cd ${HOMEBOT_PATH}/homebridge && bash auto.sh > logger.log &"
+}
+
+
+stop()
+{
+    echo "stoping homebot"
+    # TODO: Add stop command
+}
+
+restart()
+{
+    stop
+    sleep 3
+    start
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    restart
+    ;;
+  *)
+    echo "Syntax Error: release [start|stop|restart]"
+    ;;
+esac
