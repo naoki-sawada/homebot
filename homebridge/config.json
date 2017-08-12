@@ -1,0 +1,28 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CD:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+
+    "description": "dummy",
+
+    "platforms": [
+        {
+            "platform": "cmdSwitch2",
+            "name": "CMD Switch",
+            "switches": [{
+                "name": "電気",
+                "on_cmd": "python3 homekit.py '{\"light\": \"orange\"}'",
+                "off_cmd": "python3 homekit.py '{\"light\": \"off\"}'",
+                "state_cmd": "python3 state.py light | grep -e on -e orange"
+            }, {
+                "name": "エアコン",
+                "on_cmd": "python3 homekit.py '{\"aircon\": \"on\"}'",
+                "off_cmd": "python3 homekit.py '{\"aircon\": \"off\"}'",
+                "state_cmd": "python3 state.py aircon | grep -e on"
+            }]
+        }
+    ]
+}

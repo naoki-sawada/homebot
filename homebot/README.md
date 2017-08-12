@@ -32,6 +32,12 @@ Please replace the config file your configretion parameters.
 $ vi src/config/default.yml
 ```
 
+### Run
+
+```
+$ bash auto.sh
+```
+
 ## License
 
 MIT license.
