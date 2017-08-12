@@ -6,9 +6,11 @@ This is the homebridge settings of use with homebot!
 
 ## Install
 
-Under construction...
+### Homebridge
 
-### Install config file
+Please install [homebridge](https://github.com/nfarina/homebridge#installation).
+
+### Config file
 
 After install homebridge, please copy into the `config.json` file to homebridge folder.
 
@@ -18,7 +20,9 @@ $ cp config.json ~/.homebridge/config.json
 
 ## Usage
 
-Under construction...
+```
+$ bash auto.sh
+```
 
 ## License
 
