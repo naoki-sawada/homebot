@@ -9,8 +9,8 @@ start()
 {
   echo "###################"
   echo "start homebot"
-  su - root -c "cd ${HOMEBOT_PATH}/homebot/src && python3 controller_server.py &"
-  su - pi -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh start &"
+  su - root -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh deamon-start-nosudo &"
+  su - pi -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh deamon-start &"
 
   echo "###################"
   echo "starting homebridge"
@@ -21,13 +21,14 @@ start()
 stop()
 {
     echo "stoping homebot"
-    # TODO: Add stop command
+    su - root -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh stop"
+    pkill -f 'homebridge'
 }
 
 restart()
 {
     stop
-    sleep 3
+    sleep 1
     start
 }
 
