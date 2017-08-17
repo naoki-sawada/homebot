@@ -16,7 +16,8 @@
           "response": "いってらっしゃい",
           "control": {
             "light": "off",
-            "aircon": "off"
+            "aircon": "off",
+            "fan": "off"
           }
         },
         "おは": {
