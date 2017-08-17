@@ -1,5 +1,6 @@
 import json
 import urllib.request as urllib
+import requests
 
 class WeatherAPI:
     def __init__(self, cityid='130010'):
@@ -14,3 +15,15 @@ class WeatherAPI:
 
     def close(self):
         self.r.close()
+
+class WioNode:
+    def __init__(self, token):
+        self.token = token
+
+    def relay(self, onoff):
+        url = 'https://us.wio.seeed.io/v1/node/GroveRelayD1/onoff/' + onoff + '?access_token=' + self.token
+        r = requests.post(url)
+        if r.status_code == 200:
+            return True
+        else:
+            return False

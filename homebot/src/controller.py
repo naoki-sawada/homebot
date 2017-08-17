@@ -4,6 +4,7 @@ import datetime
 import subprocess
 import RPi.GPIO as GPIO
 import redis
+import requests
 
 from config_loader import *
 from temphudi import *
@@ -14,6 +15,7 @@ class Control:
         config = config_loader()
         self.temphudi = Temphudi()
         self.wapi = WeatherAPI(cityid=config['api']['weather']['cityid'])
+        self.wio = WioNode(token=config['api']['wio']['token'])
         self.rdb = redis.StrictRedis(host='localhost', port=6379, db=0)
         # GPIO setting
         GPIO.setmode(GPIO.BOARD)
@@ -62,6 +64,14 @@ class Control:
             subprocess.call('irsend SEND_ONCE aircon off', shell=True)
             self.rdb.set('aircon', 'off')
             return 'エアコンをoffにします'
+
+    def fan(self, ctlcmd):
+        if ctlcmd == 'on':
+            self.wio.relay(1)
+            return '扇風機をonにします'
+        elif ctlcmd == 'off':
+            self.wio.relay(0)
+            return '扇風機をoffにします'
 
     def roomba(self, ctlcmd):
         # TODO: Roomba control will be available in the future version...

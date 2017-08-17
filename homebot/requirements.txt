@@ -2,3 +2,4 @@ anyconfig==0.9.3
 slackclient==1.0.7
 tornado==4.4.1
 redis==2.10.5
+requests==2.9.1
