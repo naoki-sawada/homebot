@@ -21,7 +21,7 @@ class WioNode:
         self.token = token
 
     def relay(self, onoff):
-        url = 'https://us.wio.seeed.io/v1/node/GroveRelayD1/onoff/' + onoff + '?access_token=' + self.token
+        url = 'https://us.wio.seeed.io/v1/node/GroveRelayD1/onoff/' + str(onoff) + '?access_token=' + self.token
         r = requests.post(url)
         if r.status_code == 200:
             return True
