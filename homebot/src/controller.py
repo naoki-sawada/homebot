@@ -68,9 +68,11 @@ class Control:
     def fan(self, ctlcmd):
         if ctlcmd == 'on':
             self.wio.relay(1)
+            self.rdb.set('fan', 'on')
             return '扇風機をonにします'
         elif ctlcmd == 'off':
             self.wio.relay(0)
+            self.rdb.set('fan', 'off')
             return '扇風機をoffにします'
 
     def roomba(self, ctlcmd):

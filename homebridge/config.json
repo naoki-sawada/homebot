@@ -22,6 +22,11 @@
                 "on_cmd": "python3 homekit.py '{\"aircon\": \"on\"}'",
                 "off_cmd": "python3 homekit.py '{\"aircon\": \"off\"}'",
                 "state_cmd": "python3 state.py aircon | grep -e on"
+            }, {
+                "name": "扇風機",
+                "on_cmd": "python3 homekit.py '{\"fan\": \"on\"}'",
+                "off_cmd": "python3 homekit.py '{\"fan\": \"off\"}'",
+                "state_cmd": "python3 state.py fan | grep -e on"
             }]
         }
     ]
