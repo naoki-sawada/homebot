@@ -9,26 +9,24 @@ start()
 {
   echo "###################"
   echo "start homebot"
-  su - root -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh deamon-start-nosudo &"
-  su - pi -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh deamon-start &"
+  su - root -c "cd ${HOMEBOT_PATH}/homebot && ./auto.sh deamon-start-nosudo &"
+  su - pi -c "cd ${HOMEBOT_PATH}/homebot && ./auto.sh deamon-start &"
 
   echo "###################"
   echo "starting homebridge"
-  su - pi -c "cd ${HOMEBOT_PATH}/homebridge && bash auto.sh > logger.log &"
+  su - pi -c "cd ${HOMEBOT_PATH}/homebridge && ./auto.sh > logger.log &"
 }
 
 
 stop()
 {
     echo "stoping homebot"
-    su - root -c "cd ${HOMEBOT_PATH}/homebot && bash auto.sh stop"
-    pkill -f 'homebridge'
+    cd ${HOMEBOT_PATH}/homebot && ./auto.sh stop
 }
 
 restart()
 {
     stop
-    sleep 1
     start
 }
 

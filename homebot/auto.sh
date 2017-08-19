@@ -34,7 +34,7 @@ if [ $1 = "deamon-start" ] ; then
     deamon redis-server &
 
     cd ${WORK_PATH}/src
-    deamon python3 homebot.py
+    deamon python3 homebot.py &
 fi
 
 if [ $1 = "deamon-start-nosudo" ] ; then
