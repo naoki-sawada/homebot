@@ -6,3 +6,6 @@ slack:
 api:
   weather:
     cityid: '130010'
+
+  wio:
+    token: 'xxxxxxxxxxx'

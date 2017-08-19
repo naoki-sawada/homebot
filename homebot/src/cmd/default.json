@@ -16,7 +16,8 @@
           "response": "いってらっしゃい",
           "control": {
             "light": "off",
-            "aircon": "off"
+            "aircon": "off",
+            "fan": "off"
           }
         },
         "おは": {
@@ -62,9 +63,14 @@
             "func" : "light",
             "control" : ["onoff", "orange"]
           },
-          "(エアコン|空調|扇風機|air)" : {
+          "(エアコン|空調|air)" : {
             "type" : "homeelect",
             "func" : "aircon",
+            "control" : ["onoff"]
+          },
+          "(せんぷうき|扇風機|fan)" : {
+            "type" : "homeelect",
+            "func" : "fan",
             "control" : ["onoff"]
           },
           "(掃除|clean)" : {
