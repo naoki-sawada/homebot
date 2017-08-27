@@ -16,6 +16,7 @@ class Control:
         self.temphudi = Temphudi()
         self.wapi = WeatherAPI(cityid=config['api']['weather']['cityid'])
         self.wio = WioNode(token=config['api']['wio']['token'])
+        self.espr = ESPr(url=config['api']['espr']['url'])
         self.rdb = redis.StrictRedis(host='localhost', port=6379, db=0)
         # GPIO setting
         GPIO.setmode(GPIO.BOARD)
@@ -67,11 +68,11 @@ class Control:
 
     def fan(self, ctlcmd):
         if ctlcmd == 'on':
-            self.wio.relay(1)
+            self.espr.relay(1)
             self.rdb.set('fan', 'on')
             return '扇風機をonにします'
         elif ctlcmd == 'off':
-            self.wio.relay(0)
+            self.espr.relay(0)
             self.rdb.set('fan', 'off')
             return '扇風機をoffにします'
 

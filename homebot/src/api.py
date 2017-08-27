@@ -27,3 +27,15 @@ class WioNode:
             return True
         else:
             return False
+
+class ESPr:
+    def __init__(self, url):
+        self.url = url
+
+    def relay(self, onoff):
+        url = self.url + '/relay/' + str(onoff)
+        r = requests.post(url, timeout=5.0)
+        if r.status_code == 200:
+            return True
+        else:
+            return False
