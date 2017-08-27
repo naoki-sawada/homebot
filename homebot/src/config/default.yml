@@ -9,3 +9,6 @@ api:
 
   wio:
     token: 'xxxxxxxxxxx'
+
+  espr:
+    url: 'http://esp8266.local/'
