@@ -12,7 +12,7 @@
             "light": "off"
           }
         },
-        "いってきます": {
+        "[い|行]ってきます": {
           "response": "いってらっしゃい",
           "control": {
             "light": "off",
@@ -30,6 +30,14 @@
           "response": "こんにちは",
           "control": {
             "none": "null"
+          }
+        },
+        "(全|all)(.*)(付|つけ|オン|おん|on)": {
+          "response": "全ての家電をonにしました",
+          "control": {
+            "light": "orange",
+            "aircon": "on",
+            "fan": "on"
           }
         },
         "ping": {
