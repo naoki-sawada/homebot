@@ -43,9 +43,9 @@
         "(全|all)(.*)(消|けす|けし|オフ|おふ|止|off)": {
           "response": "全ての家電をoffにしました",
           "control": {
-            "light": "orange",
-            "aircon": "on",
-            "fan": "on"
+            "light": "off",
+            "aircon": "off",
+            "fan": "off"
           }
         },
         "ping": {
