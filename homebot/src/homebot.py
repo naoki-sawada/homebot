@@ -28,6 +28,13 @@ class SlackRtmClient:
             except:
                 pass
 
+            try:
+                if msg['username'] == 'IFTTT':
+                    if msg['channel'] == self.chname:
+                        return msg['attachments'][0]['pretext']
+            except:
+                pass
+
     def send(self, msg):
         sendmsg = msg
         self.sc.rtm_send_message(self.chname, sendmsg)
