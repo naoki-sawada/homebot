@@ -5,6 +5,7 @@ import subprocess
 import RPi.GPIO as GPIO
 import redis
 import requests
+import time
 
 from config_loader import *
 from temphudi import *
@@ -20,7 +21,7 @@ class Control:
         self.rdb = redis.StrictRedis(host='localhost', port=6379, db=0)
         # GPIO setting
         GPIO.setmode(GPIO.BOARD)
-        self.gpiono = {'aircon': 38, 'table_light': 40}
+        self.gpiono = {'roomba': 38, 'table_light': 40}
         for var in self.gpiono:
             GPIO.setup(int(self.gpiono[var]), GPIO.OUT)
 
@@ -78,6 +79,10 @@ class Control:
 
     def roomba(self, ctlcmd):
         # TODO: Roomba control will be available in the future version...
+        
+        GPIO.output(self.gpiono['roomba'], True)
+        time.sleep(3)
+        GPIO.output(self.gpiono['roomba'], False)
         return '掃除を開始します'
 
     def temp(self, ctlcmd):
