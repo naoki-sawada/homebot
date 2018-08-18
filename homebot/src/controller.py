@@ -85,6 +85,10 @@ class Control:
         ret =  '室温' + str(tmp) + '°, 湿度' + str(hum) + '%'
         return '室温' + str(tmp) + '°, 湿度' + str(hum) + '%'
 
+    def get_tmphum(self):
+        tmp, hum = self.temphudi.get()
+        return { 'temperature': tmp, 'humidity': hum }
+
     def weather(self, ctlcmd):
         ret = self.wapi.get()
         return ret
