@@ -30,7 +30,7 @@ class Control:
             light_state = light_state.decode('utf-8')
         if ctlcmd == 'on':
             subprocess.call('irsend SEND_ONCE led.conf on', shell=True)
-            GPIO.output(self.gpiono['table_light'], True)
+            GPIO.output(self.gpiono['table_light'], False)
             self.rdb.set('light', 'on')
             return '電気をonにします'
         elif ctlcmd == 'off':

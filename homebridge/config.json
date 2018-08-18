@@ -31,9 +31,14 @@
             "name": "CMD Switch",
             "switches": [{
                 "name": "電気",
+                "on_cmd": "python3 homekit.py '{\"light\": \"on\"}'",
+                "off_cmd": "python3 homekit.py '{\"light\": \"off\"}'",
+                "state_cmd": "python3 state.py light | grep -e on"
+            }, {
+                "name": "電気2",
                 "on_cmd": "python3 homekit.py '{\"light\": \"orange\"}'",
                 "off_cmd": "python3 homekit.py '{\"light\": \"off\"}'",
-                "state_cmd": "python3 state.py light | grep -e on -e orange"
+                "state_cmd": "python3 state.py light | grep -e orange"
             }, {
                 "name": "エアコン",
                 "on_cmd": "python3 homekit.py '{\"aircon\": \"on\"}'",
