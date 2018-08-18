@@ -8,6 +8,23 @@
 
     "description": "dummy",
 
+    "accessories": [
+        {
+            "accessory": "HttpTemperature",
+            "name": "室温",
+            "url": "http://localhost:8888/tmphum",
+            "http_method": "GET",
+            "field_name": "temperature"
+        },
+        {
+            "accessory": "HttpHumidity",
+            "name": "湿度",
+            "url": "http://localhost:8888/tmphum",
+            "http_method": "GET",
+            "field_name": "humidity"
+        }
+    ],
+
     "platforms": [
         {
             "platform": "cmdSwitch2",
